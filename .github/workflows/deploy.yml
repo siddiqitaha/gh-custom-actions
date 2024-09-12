@@ -13,7 +13,7 @@ jobs:
         id: cached-steps
         uses: ./.github/actions/cached-deps
         with:
-          caching: 'true'
+          caching: 'false'
       - name: Output Cached Dependencies
         run: echo 'The Cached Dependencies Include ${{ steps.cached-steps.outputs.used-cached }}'
       - name: Lint code
