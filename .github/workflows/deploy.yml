@@ -16,11 +16,10 @@ jobs:
           caching: 'false'
       - name: Output Cached Dependencies
         env:
-          USED_CACHED: ${{ steps.cached-steps.outputs.used-cached }}
-          run: echo "The Cached Dependencies Include: $USED_CACHED"
+          CACHED_DEPENDENCIES: ${{ steps.cached-steps.outputs.used-cached }}
+          run: echo "The Cached Dependencies Include: $CACHED_DEPENDENCIES"
       - name: Lint code
         run: npm run lint
-
   test:
     runs-on: ubuntu-latest
     steps:
