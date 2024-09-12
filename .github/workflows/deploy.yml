@@ -15,7 +15,9 @@ jobs:
         with:
           caching: 'false'
       - name: Output Cached Dependencies
-        run: echo "The Cached Dependencies Include: ${{ steps.cached-steps.outputs.used-cached }}"
+        env:
+          USED_CACHED: ${{ steps.cached-steps.outputs.used-cached }}
+          run: echo "The Cached Dependencies Include: $USED_CACHED"
       - name: Lint code
         run: npm run lint
 
