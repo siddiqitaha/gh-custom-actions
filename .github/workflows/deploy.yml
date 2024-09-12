@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -15,10 +14,11 @@ jobs:
         uses: ./.github/actions/cached-deps
         with:
           caching: 'false'
-      - name: Lint code
-        run: npm run lint
       - name: Output Cached Dependencies
         run: echo "The Cached Dependencies Include: ${{ steps.cached-steps.outputs.used-cached }}"
+      - name: Lint code
+        run: npm run lint
+
   test:
     runs-on: ubuntu-latest
     steps:
